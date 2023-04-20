@@ -6,7 +6,35 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
 
-    public GameObject MenuCanvas, SettingCanvas;
+    public GameObject MenuCanvas, SettingCanvas, pauseCanvas;
+
+    public void StartCarGame()
+    {
+        SceneManager.LoadScene("level1");
+    }
+
+    public void PauseGame()
+    {
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        pauseCanvas.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public static void LoadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public static void Retry()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     private void Awake()
     {
         SettingCanvas.SetActive(false);
@@ -31,6 +59,7 @@ public class UIManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         //SettingCanvas.SetActive(false);
         MenuCanvas.SetActive(true);
@@ -45,5 +74,10 @@ public class UIManager : MonoBehaviour
     {
         MenuCanvas.SetActive(true);
         SettingCanvas.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
