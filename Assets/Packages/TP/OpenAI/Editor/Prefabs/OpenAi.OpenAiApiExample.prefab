@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configuration:
-    apiKey: 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
+    apiKey: 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
     organization: org-RJt3HO321DhyUEajR6B08HtR
   completionRequest:
     prompt: Say hellow world in a random language
@@ -54,27 +54,19 @@ MonoBehaviour:
     temperature: 0.8
     max_tokens: 100
   aiTextResponse:
-    id: cmpl-6wZ8SpejhyYmrdhn9BfTs6VUsjRZE
-    obj: text_completion
-    created: 1679416104
-    model: text-davinci-003
+    id: 
+    obj: 
+    created: 0
+    model: 
     choices:
-    - text: Hallo Welt auf Deutsch!
+    - text: 
       index: 0
       logprobs: 
-      finish_reason: stop
-    - text: Salve mundi!
-      index: 1
-      logprobs: 
-      finish_reason: stop
-    - text: Hallo Welt! (German)
-      index: 2
-      logprobs: 
-      finish_reason: stop
+      finish_reason: 
     usage:
-      prompt_tokens: 8
-      completion_tokens: 28
-      total_tokens: 36
+      prompt_tokens: 0
+      completion_tokens: 0
+      total_tokens: 0
   imageRequest:
     prompt: Image of a dog catching a frisbe
     size: 256x256
