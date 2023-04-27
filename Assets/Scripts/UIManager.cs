@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -8,33 +9,6 @@ public class UIManager : MonoBehaviour
 
     public GameObject MenuCanvas, SettingCanvas, pauseCanvas;
 
-    public void StartCarGame()
-    {
-        SceneManager.LoadScene("level1");
-    }
-
-    public void PauseGame()
-    {
-        pauseCanvas.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void ResumeGame()
-    {
-        pauseCanvas.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
-    public static void LoadLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public static void Retry()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
     private void Awake()
     {
         SettingCanvas.SetActive(false);
@@ -48,7 +22,7 @@ public class UIManager : MonoBehaviour
 
     public void loadQuiz()
     {
-        SceneManager.LoadScene("Quiz");
+        SceneManager.LoadScene("Game");
     }
 
     public void loadSettings()
@@ -61,8 +35,6 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
-        //SettingCanvas.SetActive(false);
-        MenuCanvas.SetActive(true);
     }
 
     public void goBack()
@@ -74,6 +46,16 @@ public class UIManager : MonoBehaviour
     {
         MenuCanvas.SetActive(true);
         SettingCanvas.SetActive(false);
+    }
+
+    public void StartCarGame()
+    {
+        SceneManager.LoadScene("level1");
+    }
+
+    public static void LoadLevelSelection()
+    {
+        SceneManager.LoadScene("LevelSelection");
     }
 
     public void QuitGame()

@@ -7,6 +7,8 @@ TagManager:
   - NextLevel
   - StopSign
   - CorrectWay
+  - MenuCar
+  - NPC
   layers:
   - Default
   - TransparentFX
